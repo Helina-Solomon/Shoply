@@ -56,11 +56,11 @@ const Products = () => {
     <div className=' px-28 py-14'>
       <div>
         <h1 className=' text-2xl text-blue-900 font-bold my-5'>Top Rated Products</h1>
-        <div className=' grid grid-cols-3 gap-10'>
+        <div className=' grid grid-cols-3 gap-24'>
             {
             product.map((product)=> (
-                <div className=' border p-7 rounded-md'>
-                    <img src={product.img} alt="image" className=' w-[260px] h-[260px]' />
+                <div key={product.id} className=' border p-7 rounded-md'>
+                    <img src={product.img} alt="image" className=' w-full h-[260px]' />
                     <div className=' text-gray-800  flex flex-col gap-2 pt-4'>
                         <h1 className=' font-bold text-[18px]'>{product.title}</h1>
                         <h1><Star className=' text-yellow-500'/>{product.review} (20 reviews)</h1>

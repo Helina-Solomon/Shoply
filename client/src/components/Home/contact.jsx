@@ -13,7 +13,7 @@ const contactData = [
     {
         id :"2",
         icon: <LocationCity/>,
-        title:"HeadeQuarter",
+        title:"HeadQuarter",
         content:"Addis Ababa",
     },
     {
@@ -48,7 +48,7 @@ const Contacts = () => {
         <div className=' flex justify-between items-start px-52 gap-10'>
             {
                 contactData.map((contact)=> (
-                    <div className=' flex flex-col gap-5 text-center items-center w-[270px] my-10 shadow-lg p-10'>
+                    <div key={contact.id} className=' flex flex-col gap-5 text-center items-center w-[270px] my-10 shadow-lg p-10'>
                         <h1 className=' border-2 rounded-full w-12 h-12 flex justify-center items-center border-blue-800 '>{contact.icon}</h1>
                         <div>
                         <h1 className=' mb-2 font-bold text-xl'>{contact.title}</h1>

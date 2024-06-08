@@ -64,12 +64,12 @@ const Products = () => {
       <div>
         <div className=" grid grid-cols-4 my-10 px-14 gap-10">
           {product.map((product) => (
-            <Link to={"/products-details"}>
+            <Link key={product.id} to={"/products-details"}>
               <div className=" border p-7 rounded-md">
                 <img
                   src={product.img}
                   alt="image"
-                  className=" w-[200px] h-[200px]"
+                  className=" w-full h-[200px]"
                 />
                 <div className=" text-center text-gray-800 flex flex-col gap-2 pt-4">
                   <h1 className=" text-gray-800 font-bold text-[18px]">
