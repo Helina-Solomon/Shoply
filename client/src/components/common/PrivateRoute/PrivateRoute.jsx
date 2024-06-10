@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
 
-export default function PrivateRoute() {
+ function PrivateRoute() {
   const { currentUser } = useSelector((state) => state.user);
 
   if (!currentUser) {
@@ -10,3 +10,4 @@ export default function PrivateRoute() {
   }
   return <Outlet />;
 }
+export default PrivateRoute

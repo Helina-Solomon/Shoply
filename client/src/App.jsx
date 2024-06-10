@@ -7,7 +7,8 @@ import Products from "../src/components/Products/Products";
 import ProductDetails from "./components/Products/ProductDetails";
 import Cart from "./components/Products/Cart";
 import Google from "./components/Authentication/Google";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute"
+import PrivateRoute from "./components/common/PrivateRoute/PrivateRoute";
+
 const App = () => {
   return (
     <BrowserRouter>

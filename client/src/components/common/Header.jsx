@@ -11,6 +11,7 @@ import { SearchRounded } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useSelector } from "react-redux";
+import SignOut from "../Authentication/SignOut";
 
 const catagory = [
   {
@@ -95,9 +96,12 @@ const Header = () => {
               </Link>
             </div>
           ) : (
-            <div>
+            <div className=" group">
 
               <img src={currentUser.avatar} alt="profile" className=" w-10 rounded-full" />
+              <div className=" absolute z-[9999]  hidden group-hover:block">
+                <h2><SignOut/></h2>
+              </div>
             </div>
           )}
 
