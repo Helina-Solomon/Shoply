@@ -2,6 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import userRouter from './routes/user.js'
+import productRouter from './routes/product.js'
 dotenv.config()
 mongoose.connect("mongodb+srv://solomonhelina78:12348109@e-commerce.vm5aylr.mongodb.net/?retryWrites=true&w=majority&appName=e-commerce").then(()=> {
     console.log("Connected to Mongo")
@@ -15,14 +16,12 @@ const app = express()
 app.use(express.json())
 
 app.use('/api/user', userRouter)
+app.use('/api/product', productRouter)
 
 app.listen(3000, ()=> {
     console.log("Server is running on port 3000")
 })
 
-app.get('/test', (req, res)=> {
-    res.send("hello")
-})
 
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
