@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { signInFailure, signInStart,signInSuccess } from "../../redux/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Google from "./Google";
 
 //mongodb+srv://solomonhelina78:12348109@e-commerce.vm5aylr.mongodb.net/?retryWrites=true&w=majority&appName=e-commerce
 const SignIn = () => {
@@ -75,14 +76,19 @@ const SignIn = () => {
             >
               {loading ? "Loading..." : "Sign In"} 
             </button>
-            <div className=" flex gap-2">
+            <Google/>
+            <div className=" flex flex-col  gap-2">
+              <div className=" flex ">
               <p>Don't have an account?</p>
               <Link to={"/sign-up"} className=" text-blue-800 font-semibold">
                 Sign Up
               </Link>
+              </div>
+              
             </div>
             {error && <p className=" text-red-500 mt-5">{error}</p>}
           </form>
+         
         </div>
       </div>
     </div>

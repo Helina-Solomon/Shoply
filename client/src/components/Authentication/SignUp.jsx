@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from "react";
 import Header from "../common/Header";
 import { Link, useNavigate } from "react-router-dom";
+import Google from "./Google";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({});
@@ -86,6 +87,7 @@ const SignUp = () => {
             >
               {loading ? "Loading..." : "Register"} 
             </button>
+            <Google/>
             <div className=" flex gap-2">
               <p>Already have an account?</p>
               <Link to={"/sign-in"} className=" text-blue-800 font-semibold">

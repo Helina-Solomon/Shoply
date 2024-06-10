@@ -6,6 +6,7 @@ import SignIn from "./components/Authentication/SignIn";
 import Products from "../src/components/Products/Products";
 import ProductDetails from "./components/Products/ProductDetails";
 import Cart from "./components/Products/Cart";
+import Google from "./components/Authentication/Google";
 const App = () => {
   return (
     <BrowserRouter>
@@ -15,7 +16,7 @@ const App = () => {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products-details" element={<ProductDetails />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/google" element={<Google />} />
       </Routes>
     </BrowserRouter>
   );
