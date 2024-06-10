@@ -7,6 +7,7 @@ import Products from "../src/components/Products/Products";
 import ProductDetails from "./components/Products/ProductDetails";
 import Cart from "./components/Products/Cart";
 import Google from "./components/Authentication/Google";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute"
 const App = () => {
   return (
     <BrowserRouter>
@@ -17,6 +18,9 @@ const App = () => {
         <Route path="/products" element={<Products />} />
         <Route path="/products-details" element={<ProductDetails />} />
         <Route path="/google" element={<Google />} />
+        <Route element= {<PrivateRoute/>}>
+            
+        </Route>
       </Routes>
     </BrowserRouter>
   );
