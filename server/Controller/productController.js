@@ -3,7 +3,10 @@ import Product from "../models/Product.js";
 export const product = async (req, res, next) => {
   const {
     title,
-    image,
+    image1,
+    image2,
+    image3,
+    image4,
     description,
     price,
     rating,
@@ -13,7 +16,10 @@ export const product = async (req, res, next) => {
   } = req.body;
   const newProduct = new Product({
     title,
-    image,
+    image1,
+    image2,
+    image3,
+    image4,
     description,
     price,
     rating,
@@ -28,3 +34,12 @@ export const product = async (req, res, next) => {
     next(error);
   }
 };
+
+export const displayProduct = async(req, res, next) => {
+  try {
+    const products = await Product.find()
+    res.json(products)
+  } catch (error) {
+    next(error)
+  }
+}
