@@ -102,7 +102,7 @@ const CreateProduct = () => {
         <div className="  flex flex-col justify-between  px-40  p-10  items-center">
           <form
             onSubmit={handleSubmit}
-            className=" flex flex-col gap-5 bg-white rounded-lg border-l-8 border-l-blue-600 py-6 p-10"
+            className=" flex flex-col gap-5 bg-white rounded-lg border-l-8 border-l-blue-800 py-6 p-10"
           >
             <div className="flex  justify-between gap-20 ">
               <div className=" w-[50%]">
@@ -241,8 +241,7 @@ const CreateProduct = () => {
                     required
                   />
                 </div>
-              </div>
-              <div className="mb-4">
+                <div className="mb-4">
                 <label
                   htmlFor="rating"
                   className="block text-gray-700 font-bold mb-2"
@@ -261,13 +260,16 @@ const CreateProduct = () => {
                 />
               </div>
 
-              <button
-                className=" mt-14 bg-blue-600 p-4 py-2 text-white rounded-md"
+                <button
+                className=" mt-14 bg-blue-800 p-4 py-2 text-white rounded-md"
                 disabled={loading}
                 type="submit"
               >
                 {loading ? "Loading..." : "Create Product"}
               </button>
+              </div>
+             
+            
             </div>
 
             {error && <p className=" text-red-500 mt-5">{error}</p>}

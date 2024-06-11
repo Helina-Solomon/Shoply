@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import userRouter from './routes/user.js'
 import productRouter from './routes/product.js'
+import catagoryRouter from './routes/catagory.js'
 dotenv.config()
 mongoose.connect("mongodb+srv://solomonhelina78:12348109@e-commerce.vm5aylr.mongodb.net/?retryWrites=true&w=majority&appName=e-commerce").then(()=> {
     console.log("Connected to Mongo")
@@ -17,6 +18,7 @@ app.use(express.json())
 
 app.use('/api/user', userRouter)
 app.use('/api/product', productRouter)
+app.use('/api/catagory', catagoryRouter)
 
 app.listen(3000, ()=> {
     console.log("Server is running on port 3000")

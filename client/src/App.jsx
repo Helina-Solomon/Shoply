@@ -9,6 +9,7 @@ import Cart from "./components/Products/Cart";
 import Google from "./components/Authentication/Google";
 import PrivateRoute from "./components/common/PrivateRoute/PrivateRoute";
 import CreateProduct from "./components/Products/CreateProduct";
+import CreateCatagory from "./components/Catagory/CreateCatagory";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/products-details" element={<ProductDetails />} />
         <Route path="/google" element={<Google />} />
         <Route path="/create-product" element={<CreateProduct />} />
+        <Route path="/create-catagory" element={<CreateCatagory />} />
         <Route element= {<PrivateRoute/>}>
             
         </Route>

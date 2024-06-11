@@ -41,6 +41,23 @@ const catagory = [
 ];
 const Header = () => {
   const { currentUser } = useSelector((state) => state.user);
+
+  const [catagory, setCatagory] = React.useState([]);
+
+  React.useEffect(() => {
+    const fetchCatagory = async () => {
+      try {
+        const response = await fetch("/api/catagory/");
+        const data = await response.json();
+        setCatagory(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchCatagory();
+  }, []);
+
   return (
     <div className=" shadow-md ">
       <div className=" bg-blue-900 text-white rounded-t-lg p-2 px-20">
@@ -126,12 +143,12 @@ const Header = () => {
             <div className=" absolute z-[9999] hidden group-hover:block w-[200px] rounded-md bg-white p-2 text-black shadow-md">
               <ul>
                 {catagory.map((catagory) => (
-                  <li>
+                  <li key={catagory._id}>
                     <a
                       href="/"
                       className="inline-block w-full rounded-md p-2 hover:bg-gray-200"
                     >
-                      {catagory.title}
+                      {catagory.name}
                     </a>
                   </li>
                 ))}
