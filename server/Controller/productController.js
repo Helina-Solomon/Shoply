@@ -55,3 +55,17 @@ export const productDetails = async(req,res, next) => {
     next(error)
   }
 }
+
+export const deleteProduct = async (req, res, next) => {
+  const product = await Product.findById(req.params.id);
+
+  if (!product) {
+    return next(errorHandler(404, "product not found!"));
+  }
+
+  try {
+    await Product.findByIdAndDelete(req.params.id);
+  } catch (error) {
+    next(error);
+  }
+};

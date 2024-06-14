@@ -15,7 +15,6 @@ const ProductDetails = () => {
   const navigate = useNavigate();
   console.log(formData);
 
-  console.log(currentUser._id);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -88,6 +87,7 @@ const ProductDetails = () => {
         <div>
           <div className="flex flex-col justify-center items-center gap-10">
             {product ? (
+              
               <div key={product._id} className="flex gap-10">
                 <div>
                   <img
@@ -148,7 +148,9 @@ const ProductDetails = () => {
                     />
                   </span>
                 </h1>
-                <button
+                {
+                  currentUser? (
+                    <button
                  disabled = {loading}
                   onClick={handleSubmit}
                   className="w-[100%] text-white bg-black p-3 px-6"
@@ -156,6 +158,18 @@ const ProductDetails = () => {
                  {loading? "loading.... " : ` ADD TO CART` } 
                 </button>
              
+                  ): (
+                    <button
+                 disabled = {loading}
+                  onClick={() => navigate('/sign-in')}
+                  className="w-[100%] text-white bg-black p-3 px-6"
+                >
+                 {loading? "loading.... " : ` ADD TO CART` } 
+                </button>
+             
+                  )
+                }
+                
             </div>
           </div>
           <div className="p-14">

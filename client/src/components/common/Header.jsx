@@ -13,37 +13,11 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useSelector } from "react-redux";
 import SignOut from "../Authentication/SignOut";
 
-const catagory = [
-  {
-    id: "1",
-    title: "catagory",
-  },
-  {
-    id: "2",
-    title: "catagory",
-  },
-  {
-    id: "3",
-    title: "catagory",
-  },
-  {
-    id: "4",
-    title: "catagory",
-  },
-  {
-    id: "5",
-    title: "catagory",
-  },
-  {
-    id: "6",
-    title: "catagory",
-  },
-];
 const Header = () => {
   const { currentUser } = useSelector((state) => state.user);
 
   const [catagory, setCatagory] = React.useState([]);
-
+ 
   React.useEffect(() => {
     const fetchCatagory = async () => {
       try {
@@ -114,10 +88,17 @@ const Header = () => {
             </div>
           ) : (
             <div className=" group">
-
-              <img src={currentUser.avatar} alt="profile" className=" w-10 rounded-full" />
+              <Link to={`${currentUser.role == "admin" ? "/admin" : "/"}`}>
+                <img
+                  src={currentUser.avatar}
+                  alt="profile"
+                  className=" w-10 rounded-full"
+                />
+              </Link>
               <div className=" absolute z-[9999]  hidden group-hover:block">
-                <h2><SignOut/></h2>
+                <h2>
+                  <SignOut />
+                </h2>
               </div>
             </div>
           )}

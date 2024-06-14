@@ -3,6 +3,7 @@ import { signoutUserFailure, signoutUserStart, signoutUserSuccess } from "../../
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Logout } from "@mui/icons-material";
 const SignOut = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -24,10 +25,11 @@ const handleSignout = async () => {
     }
   };
   return (
-    <div>
+    <div className="">
+      
       <span
         onClick={handleSignout}
-        className=" cursor-pointer font-bold pt-2 text-blue-500"
+        className=" cursor-pointer pl-1  pt-2 text-blue-800"
       >
         Log Out 
       </span>

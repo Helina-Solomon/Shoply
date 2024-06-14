@@ -10,6 +10,7 @@ import Google from "./components/Authentication/Google";
 import PrivateRoute from "./components/common/PrivateRoute/PrivateRoute";
 import CreateProduct from "./components/Products/CreateProduct";
 import CreateCatagory from "./components/Catagory/CreateCatagory";
+import Admin from "./components/Admin/Admin";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/admin" element={<Admin />} />
         <Route
           path="/products-details/:productId"
           element={<ProductDetails />}
