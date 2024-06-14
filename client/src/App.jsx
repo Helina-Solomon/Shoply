@@ -19,13 +19,15 @@ const App = () => {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/products-details" element={<ProductDetails />} />
+        <Route
+          path="/products-details/:productId"
+          element={<ProductDetails />}
+        />
         <Route path="/google" element={<Google />} />
         <Route path="/create-product" element={<CreateProduct />} />
         <Route path="/create-catagory" element={<CreateCatagory />} />
-        <Route element= {<PrivateRoute/>}>
-            
-        </Route>
+        <Route path="/cart" element={<Cart />} />
+        <Route element={<PrivateRoute />}></Route>
       </Routes>
     </BrowserRouter>
   );

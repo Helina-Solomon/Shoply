@@ -1,10 +1,10 @@
 import React from "react";
 import { signoutUserFailure, signoutUserStart, signoutUserSuccess } from "../../redux/user/userSlice";
 import { useDispatch } from "react-redux";
-import LogoutIcon from "@mui/icons-material/Logout";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 const SignOut = () => {
-
+    const navigate = useNavigate()
     const dispatch = useDispatch()
     const user = useSelector(state => state.user);
 const handleSignout = async () => {
@@ -16,8 +16,9 @@ const handleSignout = async () => {
         dispatch(signoutUserFailure(data.message));
         return;
       }
-
+       
       dispatch(signoutUserSuccess(data));
+      navigate('/')
     } catch (error) {
       dispatch(signoutUserFailure(error.message));
     }

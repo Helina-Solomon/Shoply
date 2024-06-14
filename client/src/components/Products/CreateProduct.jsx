@@ -84,7 +84,7 @@ const CreateProduct = () => {
       }
       setLoading(false);
       setError(null);
-      navigate("/product");
+      navigate("/");
     } catch (error) {
       setLoading(false);
       setError(error.message);
@@ -95,6 +95,22 @@ const CreateProduct = () => {
     setImageFile(e.target.files[0]);
   };
 
+  const [catagory, setCatagory] = React.useState([]);
+
+  React.useEffect(() => {
+    const fetchCatagory = async () => {
+      try {
+        const response = await fetch("/api/catagory/");
+        const data = await response.json();
+        setCatagory(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchCatagory();
+  }, []);
+
   return (
     <div>
       <Header />
@@ -102,7 +118,7 @@ const CreateProduct = () => {
         <div className="  flex flex-col justify-between  px-40  p-10  items-center">
           <form
             onSubmit={handleSubmit}
-            className=" flex flex-col gap-5 bg-white rounded-lg border-l-8 border-l-blue-800 py-6 p-10"
+            className=" flex flex-col gap-5 bg-white rounded-lg shadow-md py-6 p-10"
           >
             <div className="flex  justify-between gap-20 ">
               <div className=" w-[50%]">
@@ -118,11 +134,11 @@ const CreateProduct = () => {
                     id="title"
                     value={formData.title}
                     onChange={handleChange}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
+                    className=" appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
                     required
                   />
                 </div>
-                {/* <div>
+                <div>
                   <label
                     htmlFor="catagory"
                     className="block text-gray-700 font-bold mb-2"
@@ -133,15 +149,15 @@ const CreateProduct = () => {
                     id="catagory"
                     value={formData.catagory}
                     onChange={handleChange}
-                    className=" shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
+                    className="  appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
                   >
                     {catagory.map((catagory) => (
-                      <option value={catagory.name}>
-                        {catagory.labelName}
+                      <option key={catagory._id} value={catagory.name}>
+                        {catagory.name}
                       </option>
                     ))}
                   </select>
-                </div> */}
+                </div>
 
                 <div className="mb-4">
                   <label
@@ -154,7 +170,7 @@ const CreateProduct = () => {
                     type="file"
                     id="image1"
                     onChange={(e) => handleFileChange(e, setProductImageFile)}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
+                    className="appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
                     required
                   />
                 </div>
@@ -169,7 +185,7 @@ const CreateProduct = () => {
                     type="file"
                     id="image2"
                     onChange={(e) => handleFileChange(e, setProductImageFile1)}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
+                    className=" appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
                     required
                   />
                 </div>
@@ -184,7 +200,7 @@ const CreateProduct = () => {
                     type="file"
                     id="image3"
                     onChange={(e) => handleFileChange(e, setProductImageFile2)}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
+                    className=" appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
                     required
                   />
                 </div>
@@ -199,7 +215,7 @@ const CreateProduct = () => {
                     type="file"
                     id="image4"
                     onChange={(e) => handleFileChange(e, setProductImageFile3)}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
+                    className=" appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
                     required
                   />
                 </div>
@@ -217,7 +233,7 @@ const CreateProduct = () => {
                     id="description"
                     value={formData.description}
                     onChange={handleChange}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
+                    className=" appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
                     rows="5"
                     required
                   ></textarea>
@@ -235,7 +251,7 @@ const CreateProduct = () => {
                     id="price"
                     value={formData.price}
                     onChange={handleChange}
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
+                    className=" appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
                     min="0"
                     defaultValue={0}
                     required
@@ -253,7 +269,7 @@ const CreateProduct = () => {
                   id="rating"
                   value={formData.rating}
                   onChange={handleChange}
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
+                  className=" appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
                   min="0"
                   max="5"
                   step="0.1"

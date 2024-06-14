@@ -5,8 +5,10 @@ export const product = async (req, res, next) => {
     title,
     image1,
     image2,
+
     image3,
     image4,
+    catagory,
     description,
     price,
     rating,
@@ -20,6 +22,7 @@ export const product = async (req, res, next) => {
     image2,
     image3,
     image4,
+    catagory,
     description,
     price,
     rating,
@@ -38,6 +41,15 @@ export const product = async (req, res, next) => {
 export const displayProduct = async(req, res, next) => {
   try {
     const products = await Product.find()
+    res.json(products)
+  } catch (error) {
+    next(error)
+  }
+}
+
+export const productDetails = async(req,res, next) => {
+  try {
+    const products = await Product.findById(req.params.id)
     res.json(products)
   } catch (error) {
     next(error)
