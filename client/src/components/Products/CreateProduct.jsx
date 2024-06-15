@@ -143,7 +143,7 @@ const CreateProduct = () => {
                     htmlFor="catagory"
                     className="block text-gray-700 font-bold mb-2"
                   >
-                    Course catagory
+                    Product catagory
                   </label>
                   <select
                     id="catagory"
@@ -262,7 +262,7 @@ const CreateProduct = () => {
                   htmlFor="rating"
                   className="block text-gray-700 font-bold mb-2"
                 >
-                  Course Rating (optional)
+                  Product Rating (optional)
                 </label>
                 <input
                   type="number"

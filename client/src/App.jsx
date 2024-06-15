@@ -11,6 +11,8 @@ import PrivateRoute from "./components/common/PrivateRoute/PrivateRoute";
 import CreateProduct from "./components/Products/CreateProduct";
 import CreateCatagory from "./components/Catagory/CreateCatagory";
 import Admin from "./components/Admin/Admin";
+import EditCategory from "./components/Catagory/Update";
+import ProductEdit from "./components/Products/ProductEdit";
 
 const App = () => {
   return (
@@ -21,6 +23,8 @@ const App = () => {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/products" element={<Products />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/update-catagory/:id" element={<EditCategory />} />
+        <Route path="/edit/:id" element={<ProductEdit />} />
         <Route
           path="/products-details/:productId"
           element={<ProductDetails />}
