@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Notifications, SearchOutlined } from "@mui/icons-material";
+import {  SearchOutlined } from "@mui/icons-material";
 import CalendarViewDayIcon from "@mui/icons-material/CalendarViewDay";
 import EmojiPeopleIcon from "@mui/icons-material/EmojiPeople";
-import MessageIcon from "@mui/icons-material/Message";
-import { Badge, Stack } from "@mui/material";
+
 
 const DashboardHeader = () => {
   const { currentUser } = useSelector((state) => state.user);

@@ -29,6 +29,7 @@ const ProductEdit = () => {
       [e.target.id]: e.target.value,
     });
   };
+  
 
   React.useEffect(() => {
     const fetchProduct = async () => {
@@ -36,12 +37,13 @@ const ProductEdit = () => {
         const res = await fetch(`/api/product/productEdit/${id}`);
         const data = await res.json();
         setProducts(data);
+        setFormData(data);
       } catch (error) {
         console.error(error);
       }
     };
     fetchProduct();
-  }, [products]);
+  }, [id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -136,7 +138,7 @@ const ProductEdit = () => {
       <Header />
       <div className="bg-slate-100 ">
         <div className="  flex flex-col justify-between  px-40  p-10  items-center">
-          {products ? (
+          {formData ? (
             <form
               onSubmit={handleSubmit}
               className=" flex flex-col gap-5 bg-white rounded-lg shadow-md py-6 p-10"
@@ -153,7 +155,7 @@ const ProductEdit = () => {
                     <input
                       type="text"
                       id="title"
-                      value={products.title}
+                      value={formData.title || ""}
                       onChange={handleChange}
                       className=" appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
                       required
@@ -168,7 +170,7 @@ const ProductEdit = () => {
                     </label>
                     <select
                       id="catagory"
-                      value={products.catagory}
+                      value={formData.catagory || ""}
                       onChange={handleChange}
                       className="  appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
                     >
@@ -257,7 +259,7 @@ const ProductEdit = () => {
                     </label>
                     <textarea
                       id="description"
-                      value={products.description}
+                      value={formData.description || ""}
                       onChange={handleChange}
                       className=" appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
                       rows="5"
@@ -275,7 +277,7 @@ const ProductEdit = () => {
                     <input
                       type="number"
                       id="price"
-                      value={products.price || ""}
+                      value={formData.price || ""}
                       onChange={handleChange}
                       className=" appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
                       min="0"
@@ -293,7 +295,7 @@ const ProductEdit = () => {
                     <input
                       type="number"
                       id="rating"
-                      value={products.rating || ""}
+                      value={formData.rating || ""}
                       onChange={handleChange}
                       className=" appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-blue-500 focus:shadow-outline"
                       min="0"
